@@ -17,14 +17,13 @@ app.use(express.json());
 const init = async () => {
   //await Page.sync();
   //await User.sync();
-  await db.sync({ force: true });
+  await db.sync();
 };
 init();
 
 app.use("/wiki", wikiRouter);
-app.get("/", (req, res,next) => {
-    res.redirect("/wiki");
-
+app.get("/", (req, res, next) => {
+  res.redirect("/wiki");
 });
 
 const port = 3000;
